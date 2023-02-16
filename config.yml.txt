@@ -1,0 +1,12 @@
+machine
+  node
+    version 6.11.1
+dependencies
+  post
+    - sudo apt-get update
+    - wget -c httpftp.ps.plpubapachejmeterbinariesapache-jmeter-3.2.zip
+    - sudo apt-get install unzip
+    - unzip apache-jmeter-3.2.zip
+    - aws s3 cp s3ci-testCI_Test_jmt.jmx ~apache-jmeter-3.2binCI_Test_jmt.jmx
+    - cd apache-jmeter-3.2bin
+    - sh jmeter.sh -n -t CI_Test_jmt.jmx
